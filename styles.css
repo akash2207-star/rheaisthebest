@@ -1,0 +1,219 @@
+:root {
+  --bg0: #050404;
+  --bg1: #161111;
+  --card: rgba(22, 15, 13, 0.96);
+  --stroke: rgba(255, 234, 210, 0.09);
+  --text: #f4e0c3;
+  --muted: rgba(244, 224, 195, 0.7);
+  --accent: #e1af6b;
+  --accent2: #d68445;
+  --shadow: 0 18px 55px rgba(0, 0, 0, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family:
+    "Plus Jakarta Sans",
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    "Apple Color Emoji",
+    "Segoe UI Emoji";
+  background:
+    radial-gradient(900px 520px at 90% 40%, rgba(219, 159, 83, 0.22), transparent 60%),
+    radial-gradient(900px 520px at 10% 0%, rgba(219, 159, 83, 0.08), transparent 60%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+}
+
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 44px 18px 40px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--stroke);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+h1 {
+  margin: 14px 0 10px;
+  font-size: clamp(34px, 4.6vw, 54px);
+  line-height: 1.04;
+  letter-spacing: -0.8px;
+  color: var(--text);
+}
+
+.sub {
+  margin: 0;
+  color: var(--muted);
+}
+
+.birthday-ribbon {
+  margin-top: 10px;
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(225, 175, 107, 0.45);
+  background: radial-gradient(circle at 0% 0%, rgba(225, 175, 107, 0.24), transparent 60%),
+    rgba(0, 0, 0, 0.45);
+  color: var(--text);
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.card {
+  border-radius: 18px;
+  border: 1px solid var(--stroke);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* Make the Bootstrap carousel feel like a sunflower frame */
+.carousel {
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  background:
+    radial-gradient(900px 520px at 85% 40%, rgba(219, 159, 83, 0.32), transparent 60%),
+    radial-gradient(900px 520px at 10% 20%, rgba(219, 159, 83, 0.12), transparent 60%),
+    rgba(0, 0, 0, 0.45);
+}
+
+.carousel-item img {
+  max-height: 520px;
+  object-fit: contain;
+}
+
+.sunflower-strip {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 1.3rem;
+  letter-spacing: 0.6rem;
+  color: var(--accent);
+  opacity: 0.9;
+}
+
+code {
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    "Courier New",
+    monospace;
+  font-size: 0.95em;
+  padding: 0 0.35em;
+  border-radius: 8px;
+  border: 1px solid var(--stroke);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 14px;
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid var(--stroke);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  padding: 11px 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 120ms ease,
+    background 120ms ease,
+    border-color 120ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn:active {
+  transform: translateY(0px);
+}
+
+.btn:focus-visible {
+  outline: 3px solid rgba(255, 207, 51, 0.35);
+  outline-offset: 2px;
+}
+
+.meta {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+
+.counter {
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.toggle {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--muted);
+  font-weight: 600;
+  user-select: none;
+}
+
+.toggle input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+
+.footer {
+  margin-top: 14px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 520px) {
+  /* No special layout needed now that controls are gone */
+}
