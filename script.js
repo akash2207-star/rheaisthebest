@@ -30,7 +30,7 @@ async function findAssetImages() {
   const exts = ["jpeg", "jpg", "png", "webp", "gif"];
   const images = [];
 
-  for (let n = 1; n <= 50; n += 1) {
+  for (let n = 1; n <= 25; n += 1) {
     for (const ext of exts) {
       const src = `assets/${n}.${ext}`;
       // eslint-disable-next-line no-await-in-loop
@@ -42,6 +42,39 @@ async function findAssetImages() {
   }
 
   return images;
+}
+
+function showLoader() {
+  if (document.getElementById("rhea-loader")) return;
+  const overlay = document.createElement("div");
+  overlay.id = "rhea-loader";
+  overlay.style.position = "fixed";
+  overlay.style.inset = "0";
+  overlay.style.display = "flex";
+  overlay.style.alignItems = "center";
+  overlay.style.justifyContent = "center";
+  overlay.style.background = "radial-gradient(circle at 50% 0%, rgba(225, 175, 107, 0.25), transparent 60%), rgba(5, 4, 4, 0.92)";
+  overlay.style.zIndex = "9999";
+
+  const text = document.createElement("div");
+  text.style.padding = "18px 22px";
+  text.style.borderRadius = "999px";
+  text.style.border = "1px solid rgba(244, 224, 195, 0.4)";
+  text.style.background = "rgba(22, 17, 17, 0.95)";
+  text.style.color = "#f4e0c3";
+  text.style.fontFamily = 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+  text.style.fontSize = "0.95rem";
+  text.style.letterSpacing = "0.08em";
+  text.style.textTransform = "uppercase";
+  text.textContent = "Loading our memories 🌻";
+
+  overlay.appendChild(text);
+  document.body.appendChild(overlay);
+}
+
+function hideLoader() {
+  const overlay = document.getElementById("rhea-loader");
+  if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
 }
 
 function buildCarousel(images) {
@@ -78,7 +111,9 @@ function buildCarousel(images) {
 
 async function start() {
   setUrlAndTitle();
+  showLoader();
   const images = await findAssetImages();
+  hideLoader();
   if (!images.length) return;
   buildCarousel(images);
 }
